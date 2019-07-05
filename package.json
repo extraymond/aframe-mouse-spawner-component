@@ -1,0 +1,19 @@
+{
+  "name": "aframe-mouse-spawner-component",
+  "version": "1.0.0",
+  "description": "Spawning entities using mouse click.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "aframe",
+    "webvr",
+    "a-frame"
+  ],
+  "author": "Raymond Yeh <extraymond@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "aframe-mouse-dragndrop-component": "^1.0.8"
+  }
+}
