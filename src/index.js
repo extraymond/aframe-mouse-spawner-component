@@ -5,7 +5,7 @@ AFRAME.registerComponent("spawner", {
   schema: {
     distance: { type: "int", default: 3 },
     enabled: { type: "bool", default: false },
-    template: { type: "selector", default: null }
+    template: { type: "string" }
   },
   init: function() {
     this.scene = this.el.sceneEl;
@@ -20,12 +20,10 @@ AFRAME.registerComponent("spawner", {
             .clone()
             .add(direction.multiplyScalar(this.data.distance));
 
-          let el;
+          let el = document.createElement("a-entity");
           if (this.data.template) {
-            el = this.data.template.cloneNode();
-            el.removeAttribute("id")
+            el.setAttribute("mixin", this.data.template)
           } else {
-            el = document.createElement("a-entity");
             el.setAttribute("geometry", { primitive: "sphere" });
             el.setAttribute("material", { color: "red" });
           }
