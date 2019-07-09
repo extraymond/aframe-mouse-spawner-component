@@ -27,13 +27,15 @@ AFRAME.registerComponent("spawner", {
             el.setAttribute("geometry", { primitive: "sphere" });
             el.setAttribute("material", { color: "red" });
           }
-          console.log()
           el.setAttribute("position", target.clone());
-          el.setAttribute("rotation", this.camera.getAttribute("rotation"));
-
+          console.log(el.object3D.up)
+          // el.setAttribute("rotation", this.camera.getAttribute("rotation"));
           el.setAttribute("dragndrop", {});
           el.setAttribute("visible", true)
           this.el.appendChild(el);
+          el.addEventListener("loaded", e => {
+            el.object3D.lookAt(this.camera.object3D.position);
+          })
         }
       }
     });

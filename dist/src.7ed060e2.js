@@ -72679,12 +72679,8 @@ _aframe.default.registerComponent("dragndrop", {
     this.dist = 0;
     this.el.addEventListener("stateadded", e => {
       if (e.detail == "dragging") {
-        this.dist = this.el.object3D.position.clone().sub(this.el.sceneEl.camera.el.object3D.position).length();
-      }
-    });
-    this.el.addEventListener("stateremoved", e => {
-      if (e.detail == "dragging") {
         this.range = 0;
+        this.dist = this.el.object3D.position.clone().sub(this.el.sceneEl.camera.el.object3D.position).length();
       }
     });
     this.direction = new _aframe.default.THREE.Vector3();
@@ -72761,13 +72757,17 @@ _aframe.default.registerComponent("spawner", {
             });
           }
 
-          console.log();
           el.setAttribute("position", target.clone());
-          el.setAttribute("rotation", _this.camera.getAttribute("rotation"));
+          console.log(el.object3D.up); // el.setAttribute("rotation", this.camera.getAttribute("rotation"));
+
           el.setAttribute("dragndrop", {});
           el.setAttribute("visible", true);
 
           _this.el.appendChild(el);
+
+          el.addEventListener("loaded", function (e) {
+            el.object3D.lookAt(_this.camera.object3D.position);
+          });
         }
       }
     });
@@ -72801,7 +72801,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "33601" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "44435" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
