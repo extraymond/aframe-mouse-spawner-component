@@ -1,6 +1,6 @@
 {
   "name": "aframe-mouse-spawner-component",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Spawning entities using mouse click.",
   "main": "src/index.js",
   "scripts": {
