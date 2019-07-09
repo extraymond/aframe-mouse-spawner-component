@@ -28,8 +28,6 @@ AFRAME.registerComponent("spawner", {
             el.setAttribute("material", { color: "red" });
           }
           el.setAttribute("position", target.clone());
-          console.log(el.object3D.up)
-          // el.setAttribute("rotation", this.camera.getAttribute("rotation"));
           el.setAttribute("dragndrop", {});
           el.setAttribute("visible", true)
           this.el.appendChild(el);
