@@ -1,4 +1,7 @@
-import AFRAME from "aframe"
+if (window.AFRAME == null) {
+  console.error("Aframe not imported, please import it before this component.")
+}
+
 import "aframe-mouse-dragndrop-component"
 AFRAME.registerComponent("spawner", {
   dependencies: ["track-cursor"],

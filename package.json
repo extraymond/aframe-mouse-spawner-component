@@ -15,6 +15,9 @@
   "author": "Raymond Yeh <extraymond@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "aframe-mouse-dragndrop-component": "^1.0.10"
+    "aframe-mouse-dragndrop-component": "^1.1.0"
+  },
+  "devDependencies": {
+    "aframe": "^0.9.2"
   }
 }
